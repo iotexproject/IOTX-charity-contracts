@@ -1,0 +1,1 @@
+# IOTX-charity-contracts
