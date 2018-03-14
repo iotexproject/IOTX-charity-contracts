@@ -1,5 +1,7 @@
 # IOTX-charity-contracts
 
+This is the set of contracts that are used for IoTeX's charity program.
+
 ## Development
 ```npm install -g truffle```
 ```truffle develop```
