@@ -2,12 +2,16 @@
 
 ## Development
 ```npm install -g truffle```
+```truffle develop```
+
+```
+truffle(develop)> compile
+```
 
 ## Test
 ```truffle develop```
 
 ```
-truffle(develop)> compile
 truffle(develop)> migrate --reset
 truffle(develop)> test
 ```
