@@ -95,11 +95,11 @@ contract Donate is Ownable {
     whitelist[_donor] = false;
   }
 
-  function pause() public onlyOwner {
+  function pause() external onlyOwner {
     paused = true;
   }
 
-  function unpause() public onlyOwner {
+  function unpause() external onlyOwner {
     paused = false;
   }
 
