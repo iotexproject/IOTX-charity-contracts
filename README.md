@@ -17,3 +17,7 @@ truffle(develop)> compile
 truffle(develop)> migrate --reset
 truffle(develop)> test
 ```
+
+## Deploy
+```truffle compile```
+```truffle migrate --network kovan```

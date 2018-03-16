@@ -4,7 +4,7 @@ import "./Ownable.sol";
 
 /**
  * @title Donate
- * @dev Donate is a base contract for managing a donation,
+ * @dev Donate is a base contract for managing a donation
  */
 contract Donate is Ownable {
   address public charity;
@@ -26,9 +26,9 @@ contract Donate is Ownable {
    * @param _charity Address where collected funds will be forwarded to
    * @param _openingTime Donate opening time
    * @param _closingTime Donate closing time
-   * @param _minWeiAmount minimun donation amount
-   * @param _maxWeiAmount maximum donation amount
-   * @param _maxNumDonors maximum number of donors
+   * @param _minWeiAmount Minimun donation amount in wei
+   * @param _maxWeiAmount Maximum donation amount in wei
+   * @param _maxNumDonors Maximum number of donors
   */
   function Donate(address _charity, uint256 _openingTime, uint256 _closingTime, uint256 _minWeiAmount, uint256 _maxWeiAmount, uint256 _maxNumDonors) public {
     require(_charity != address(0));
@@ -95,11 +95,19 @@ contract Donate is Ownable {
     whitelist[_donor] = false;
   }
 
+  /**
+   * @dev called by the owner to pause, triggers stopped state
+   */
   function pause() external onlyOwner {
+    require(!paused);
     paused = true;
   }
 
+  /**
+   * @dev called by the owner to unpause, returns to normal state
+   */
   function unpause() external onlyOwner {
+    require(paused);
     paused = false;
   }
 
@@ -108,7 +116,7 @@ contract Donate is Ownable {
   // -----------------------------------------
 
   /**
-   * @dev Validation of an incoming donation. Use require statemens to revert state when conditions are not met. Use super to concatenate validations.
+   * @dev Validation of an incoming donation
    * @param _donor Address performing the donation
    * @param _weiAmount Value in wei involved in the donation
    */
