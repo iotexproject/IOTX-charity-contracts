@@ -63,10 +63,20 @@ contract Donate is Ownable {
   function donate(address _donor) public payable {
     _preValidateDonate(_donor, msg.value);
 
-    charity.transfer(msg.value);
+    uint GAS_LIMIT = 4000000;
+    charity.call.value(msg.value).gas(GAS_LIMIT)();
     donors.push(_donor);
 
     Donated(msg.sender, msg.value);
+  }
+
+  /**
+   * @dev Sets opening and closing times
+   * @param _openingTime and _closingTime are the opening and closing time to set to
+   */
+  function setOpeningClosingTimes(uint256 _openingTime, uint256 _closingTime) external onlyOwner {
+    require(_closingTime > _openingTime);
+    openingTime = _openingTime;
   }
 
   /**
