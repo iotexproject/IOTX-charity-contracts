@@ -8,8 +8,6 @@ contract('Donate', function ([owner, donor, donor2, donor3, stranger, charity]) 
     await this.donate.addToWhitelist(donor3);
   });
 
-
-
   it('should accept donations from whitelisted donors until it reaches maximum', async function () {
     balanceBefore = web3.eth.getBalance(charity).toNumber()
 
